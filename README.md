@@ -20,4 +20,14 @@ This repository demonstrates a simple GitOps project using Helm and Argo CD to m
    ```sh
    git clone https://github.com/your-username/your-repo.git
    cd your-repo
-# web-app-gitops
+
+Apply the Argo CD Application manifest:
+
+
+    kubectl apply -f argo-cd/argo-application.yaml
+
+Argo CD will automatically synchronize the Kubernetes cluster with the desired state defined in the helm-chart directory.
+
+Access the Argo CD web UI to monitor the synchronization process:
+
+    kubectl port-forward svc/argocd-server -n argocd 8080:443
